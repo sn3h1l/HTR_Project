@@ -49,3 +49,12 @@ The model architecture consists of:
 Convolutional Neural Network (CNN) layers for feature extraction.
 Recurrent Neural Network (RNN) layers (BiLSTM) for sequence modeling.
 A custom CTC (Connectionist Temporal Classification) layer for handling varying lengths of text.
+
+Results
+The model's performance is evaluated using metrics like edit distance, accuracy, precision, recall, and F1 score. These metrics are computed using custom callbacks during training.
+
+Visualization
+The predictions on test images and new images are visualized using Matplotlib. Example visualizations are saved as test_Prediction.png and Inference1.png.
+
+Conclusion
+This project demonstrates the use of deep learning techniques to build an OCR system capable of recognizing handwritten text. The model achieves good performance on the IAM dataset and can be further improved with hyperparameter tuning and more advanced architectures.
