@@ -1,0 +1,5 @@
+Edit Distance RMSE: 0.5616
+Accuracy RMSE: 0.1186
+Precision RMSE: 0.1007
+Recall RMSE: 0.0618
+F1-score RMSE: 0.0980
