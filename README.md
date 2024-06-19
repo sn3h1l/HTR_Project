@@ -6,13 +6,13 @@ Dataset
 The IAM dataset is used for training, validation, and testing. This dataset contains images of handwritten words and their corresponding transcriptions. The dataset can be downloaded from the official IAM Handwriting Database.
 
 Project Structure
-data/: Contains the IAM dataset images and labels.
-IAM_Words.zip: The zipped IAM dataset file.
-IAM_Words/: The unzipped content of the IAM dataset.
-IAM_Words/words.txt: Text file containing the labels for the images.
-IAM_Words/words/: Directory containing the word images.
-notebooks/: Jupyter notebooks used for exploratory data analysis and experiments.
-saved_model/: Directory to save the trained model.
+data/: Contains the IAM dataset images and labels.\n
+IAM_Words.zip: The zipped IAM dataset file.\n
+IAM_Words/: The unzipped content of the IAM dataset.\n
+IAM_Words/words.txt: Text file containing the labels for the images.\n
+IAM_Words/words/: Directory containing the word images.\n
+notebooks/: Jupyter notebooks used for exploratory data analysis and experiments.\n
+saved_model/: Directory to save the trained model.\n
 src/: Source code for the project.
 
 Setup
