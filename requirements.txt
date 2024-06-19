@@ -1,4 +1,5 @@
-TensorFlow 2.0+
+TensorFlow 
 NumPy
 OpenCV
 Matplotlib
+sklearn
