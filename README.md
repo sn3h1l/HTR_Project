@@ -13,9 +13,7 @@ This project implements a handwriting recognition system using a Convolutional N
 - [Inference](#inference)
 - [Future Work](#future-work)
 - [Installation](#installation)
-- [Usage](#usage)
-- [Contributing](#contributing)
-- [License](#license)
+
 
 ## Introduction
 
