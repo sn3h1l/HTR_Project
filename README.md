@@ -1,60 +1,90 @@
-Handwritten Text Recognition using IAM Dataset
-Overview
-This project involves building an deep learning system to recognize handwritten text using the IAM dataset. The model is built using TensorFlow and Keras, and it employs Convolutional Neural Networks (CNNs) and Recurrent Neural Networks (RNNs) to predict text from images.
+# Handwriting Recognition System
 
-Dataset
-The IAM dataset is used for training, validation, and testing. This dataset contains images of handwritten words and their corresponding transcriptions. The dataset can be downloaded from the official IAM Handwriting Database.
+This project implements a handwriting recognition system using a Convolutional Neural Network (CNN) and Recurrent Neural Network (RNN) architecture with Connectionist Temporal Classification (CTC) loss. The model is designed to recognize sequences of characters from handwritten text images.
 
-Project Structure
-data/: Contains the IAM dataset images and labels.\n
-IAM_Words.zip: The zipped IAM dataset file.\n
-IAM_Words/: The unzipped content of the IAM dataset.\n
-IAM_Words/words.txt: Text file containing the labels for the images.\n
-IAM_Words/words/: Directory containing the word images.\n
-notebooks/: Jupyter notebooks used for exploratory data analysis and experiments.\n
-saved_model/: Directory to save the trained model.\n
-src/: Source code for the project.
+## Table of Contents
 
-Setup
-Prerequisites
-Python 3.7+
-TensorFlow 2.0+
-NumPy
-OpenCV
-Matplotlib
-Installation
-Clone the repository:
+- [Introduction](#introduction)
+- [Architecture](#architecture)
+- [Dataset](#dataset)
+- [Model Training](#model-training)
+- [Evaluation](#evaluation)
+- [Results](#results)
+- [Inference](#inference)
+- [Future Work](#future-work)
+- [Installation](#installation)
+- [Usage](#usage)
+- [Contributing](#contributing)
+- [License](#license)
 
+## Introduction
 
+This project aims to develop a robust handwriting recognition system capable of converting handwritten text images into machine-readable text. The system leverages a combination of CNNs for feature extraction and RNNs for sequence modeling, optimized using the CTC loss function.
+
+## Architecture
+
+The architecture consists of several key components:
+
+- **Convolutional Layers (CNN):** Used for feature extraction from input images.
+- **Max Pooling Layers:** Reduce the spatial dimensions of the feature maps.
+- **Dense Layer:** Connects the CNN output to the RNN input.
+- **Bidirectional LSTM Layers (RNN):** Capture dependencies in the character sequences from both directions.
+- **CTC Layer:** Used for aligning the predicted sequences with the actual sequences without requiring pre-segmented training data.
+
+## Dataset
+
+The dataset used for training and evaluation includes images of handwritten text along with their corresponding transcriptions. The images are preprocessed to standardize their size and format before being fed into the model.
+
+## Model Training
+
+The model is trained using the CTC loss function, which is well-suited for sequence-to-sequence problems where the alignment between input and output sequences is unknown. The training process involves:
+
+1. Preprocessing the input images.
+2. Feeding the images into the CNN to extract features.
+3. Passing the features through the RNN to capture sequence information.
+4. Using the CTC layer to compute the loss and optimize the model parameters.
+
+## Evaluation
+
+The model's performance is evaluated using several metrics:
+
+- **Accuracy:** Measures the percentage of correctly predicted characters.
+- **Precision and Recall:** Assess the model's performance in recognizing characters.
+- **F1-Score:** A harmonic mean of precision and recall.
+- **Character Error Rate (CER) and Word Error Rate (WER):** Specific metrics for sequence prediction tasks.
+
+## Results
+
+The evaluation results are as follows:
+
+- **Mean Precision:** 73.74%
+- **Mean Recall:** 70.12%
+- **F1-Score:** 71.88%
+
+These results demonstrate the model's effectiveness in recognizing handwritten text.
+
+## Inference
+
+To recognize text from new images, follow these steps:
+
+1. Preprocess the input images similarly to the training data.
+2. Use the trained model to predict character sequences.
+3. Apply a decoding algorithm to convert the predicted probability distributions into readable text.
+4. Perform post-processing steps such as spell-checking and text normalization.
+
+## Future Work
+
+Future improvements could include:
+
+- Enhancing the model architecture with advanced neural network layers.
+- Expanding the dataset to include more diverse handwriting styles.
+- Implementing real-time handwriting recognition.
+
+## Installation
+
+To set up the project, clone the repository and install the required dependencies:
+
+```sh
 git clone https://github.com/yourusername/handwriting-recognition.git
 cd handwriting-recognition
-Install the required packages:
-
-
-
 pip install -r requirements.txt
-Download and unzip the IAM dataset into the data directory:
-
-wget -q https://git.io/J0fjL -O IAM_Words.zip
-unzip -qq IAM_Words.zip -d data
-mkdir -p data/words
-tar -xf data/IAM_Words/words.tgz -C data/words
-mv data/IAM_Words/words.txt data
-Preprocessing
-The dataset is split into training, validation, and testing sets. Images are resized to 128x32 pixels, and labels are cleaned and vectorized.
-
-Model
-The model architecture consists of:
-
-Convolutional Neural Network (CNN) layers for feature extraction.
-Recurrent Neural Network (RNN) layers (BiLSTM) for sequence modeling.
-A custom CTC (Connectionist Temporal Classification) layer for handling varying lengths of text.
-
-Results
-The model's performance is evaluated using metrics like edit distance, accuracy, precision, recall, and F1 score. These metrics are computed using custom callbacks during training.
-
-Visualization
-The predictions on test images and new images are visualized using Matplotlib. Example visualizations are saved as test_Prediction.png and Inference1.png.
-
-Conclusion
-This project demonstrates the use of deep learning techniques to build an OCR system capable of recognizing handwritten text. The model achieves good performance on the IAM dataset and can be further improved with hyperparameter tuning and more advanced architectures.
