@@ -3,3 +3,4 @@ NumPy
 OpenCV
 Matplotlib
 sklearn
+pickle
